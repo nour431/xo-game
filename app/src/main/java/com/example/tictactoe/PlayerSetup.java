@@ -26,7 +26,7 @@ public class PlayerSetup extends AppCompatActivity {
 //    submitButton
     public void submitButtonClick(View view){
         String editTextTextPersonName = player1.getText().toString();
-        String editTextTextPersonName2 = player1.getText().toString();
+        String editTextTextPersonName2 = player2.getText().toString();
 
         Intent intent = new Intent(this,Game_Display.class);
         intent.putExtra("PLAYER_NAMES", new String [] {editTextTextPersonName , editTextTextPersonName2 });

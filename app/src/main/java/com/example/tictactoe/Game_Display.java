@@ -15,15 +15,23 @@ public class Game_Display extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gamedisplay);
-        ticTacToeBoard = findViewById(R.id.board);
+
 
 //        for graping the information of the buttons
-        Button playAgainBTN = findViewById(R.id.play_again);
-        Button homeBTN = findViewById(R.id.home_button);
+        Button playAgainBTN = findViewById(R.id.play_Again);
+        Button homeBTN = findViewById(R.id.home_BTN);
         TextView playerTurn = findViewById(R.id.player_display);
+        //TO MAKE THE BUTTONS AT THE FIRST NOT VISIBLE
+        playAgainBTN.setVisibility(View.GONE);
+        homeBTN.setVisibility(View.GONE);
 
-        String [] playerName = getIntent().getStringArrayExtra("PLAYER_NAME");
 
+        String [] playerNames = getIntent().getStringArrayExtra("PLAYER_NAMES");
+        if(playerNames !=null){
+            playerTurn.setText((playerNames[0])+"'S Turn");
+        }
+        ticTacToeBoard = findViewById(R.id.board);
+        ticTacToeBoard.setUpGame(playAgainBTN,homeBTN,playerTurn,playerNames);
     }
 
     public void playAgainButtonClick(View view){
